@@ -1,6 +1,14 @@
 import itemList from "./itemList.js";
 
 const menu = document.querySelector(".menu");
+const modal = document.querySelector(".modal");
+const loginButton = document.querySelector(".login-button");
+const modalLogin = document.querySelector(".modal-login");
+const userInfo = document.querySelector(".user-info");
+const userNameInput = document.querySelector(".modal-username");
+const passwordInput = document.querySelector(".modal-password");
+const invalidPassword = document.querySelector(".invalid-password");
+const userNameDisplay = document.querySelector(".login-username");
 const footerYear = document.querySelector(".footer-year");
 
 const itemListDisplay = () => {
@@ -33,9 +41,25 @@ const itemListDisplay = () => {
   });
 };
 itemListDisplay();
+
+const saveName = () => {
+  if (passwordInput.value === "password") {
+    const userName = userNameInput.value;
+    userInfo.style.display = "block";
+    loginButton.style.display = "none";
+    userNameDisplay.textContent = userName;
+  } else {
+    invalidPassword.style.display = "block";
+  }
+};
 const handleCurrentYear = () => {
   const year = new Date().getFullYear();
   footerYear.innerText = year;
 };
 
 handleCurrentYear();
+
+loginButton.addEventListener("click", () => {
+  modal.showModal();
+});
+modalLogin.addEventListener("click", saveName);

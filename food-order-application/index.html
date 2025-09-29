@@ -25,6 +25,20 @@
       </button>
     </div>
   </header>
+  <dialog class="modal">
+    <h2>Please log in.</h2>
+    <form method="dialog">
+      <label for="username">Username:</label>
+      <input class="modal-username" type="text" placeholder="Username" />
+      <label for="password">Password:</label>
+      <input class="modal-password" type="password" placeholder="Password" />
+      <h3 class="invalid-password">Password is not valid.</h3>
+      <div class="modal-actions">
+        <button class="modal-login">Log in</button>
+        <button class="modal-close">Close</button>
+      </div>
+    </form>
+  </dialog>
 
   <main>
     <section class="menu"></section>

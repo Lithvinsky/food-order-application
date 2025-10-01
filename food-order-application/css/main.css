@@ -14,7 +14,9 @@ body {
   min-height: 100vh;
 }
 
-.modal {
+.modal,
+.cart,
+.payment {
   padding: 2rem;
   top: 40%;
   left: 50%;
@@ -47,10 +49,6 @@ input {
   margin-bottom: 1rem;
   font-size: 1rem;
 }
-.invalid-password {
-  color: red;
-  display: none;
-}
 
 .modal-actions {
   display: flex;
@@ -67,11 +65,15 @@ button {
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  box-shadow: 0 4px 4px rgba(79, 79, 79, 0.1);
+  box-shadow: 0 4px 4px rgba(79, 79, 79, 0.3);
   background-image: linear-gradient(
       45deg,
       rgba(248, 248, 249, 0.75),
@@ -82,6 +84,7 @@ button {
   background-position: right center;
   background-attachment: fixed;
   background-attachment: scroll;
+  z-index: 10;
 }
 
 .header img {
@@ -127,7 +130,11 @@ button {
 .header .cart-button:hover {
   background-color: #fbfb4d;
 }
-
+main {
+  position: relative;
+  top: 12rem;
+  padding-bottom: 6rem;
+}
 .menu-item {
   padding: 0.5rem 2rem;
   display: flex;
@@ -157,12 +164,42 @@ button {
   border-radius: 2rem;
 }
 
+.cart button {
+  margin: 0.5rem;
+}
+.textFor425 {
+  display: block;
+}
+.textSmall {
+  display: none;
+}
+
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   font-size: 1.2rem;
   padding: 2rem;
-  background: linear-gradient(
-    45deg,
-    rgba(248, 248, 249, 0.75),
-    rgba(199, 199, 199, 0.75)
-  );
+  border-top: #919090 solid 2px;
+  background: linear-gradient(45deg, rgba(248, 248, 249), rgba(199, 199, 199));
+  z-index: 10;
+}
+
+@media (max-width: 425px) {
+  header img {
+    display: none;
+  }
+  header {
+    flex-direction: column;
+  }
+  dialog {
+    width: 80%;
+  }
+  .textFor425 {
+    display: none;
+  }
+  .textSmall {
+    display: block;
+  }
 }
